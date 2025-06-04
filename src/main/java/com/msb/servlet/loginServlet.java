@@ -37,6 +37,7 @@ public class loginServlet extends HttpServlet {
         //根据数据处理的结果响应数据库
         if (user!=null){
             //跳转到项目首页重定向
+            req.getSession().setAttribute("user",user);//存储对象
             resp.sendRedirect(req.getContextPath()+"/index.jsp");
         }else{
            req.setAttribute("msg","用户名或密码错误");
